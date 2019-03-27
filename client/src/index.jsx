@@ -6,22 +6,23 @@ class App extends Component {
     super();
     this.state = {
       something: null,
-    }
+    };
   }
-  // componentWillMount() {
-  //   fetch('http://localhost:3000/populateDB', {
-  //     method: 'GET'
-  //   })
-  // }
-  
+
+  componentWillMount() {
+    fetch('http://localhost:3000/links', {
+      method: 'GET',
+    });
+  }
+
   render() {
     return (
 
-    <div>
-      <p>Hopefully this works?!!?!?!</p>
-    </div>
+      <div>
+        <p>Hopefully this works?!!?!?!</p>
+      </div>
 
-    )
+    );
   }
 }
 
