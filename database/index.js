@@ -16,18 +16,8 @@ urlSchema.plugin(random);
 
 const links = mongoose.model('urls', urlSchema);
 
-// const getAll = (search, cb) => {
-//   links.find({}, (err, data) => {
-//     if (err) {
-//       throw err;
-//     } else {
-//       cb(data);
-//     }
-//   });
-// };
-
 const getLinks = (cb) => {
-  links.findRandom({}, {}, { limit: 6 }, (err, data) => {
+  links.findRandom({}, {}, { limit: 9 }, (err, data) => {
     if (err) {
       throw err;
     } else {

@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// eslint-disable-next-line import/extensions
+import Pictures from './components/Pictures.jsx';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      something: null,
+      data: [],
     };
   }
 
   componentWillMount() {
     fetch('http://localhost:3000/links', {
       method: 'GET',
-    });
+    }).then(res => res.json())
+      .then((data) => {
+        this.setState({
+          data,
+        });
+      });
   }
 
   render() {
+    const { data } = this.state;
     return (
 
       <div>
-        <p>Hopefully this works?!!?!?!</p>
+        <Pictures data={data} />
       </div>
 
     );
