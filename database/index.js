@@ -1,24 +1,29 @@
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/FEC', (err) => {
-  if(err) {
+  if (err) {
     throw err;
-  } else {
-    console.log('mongoose is connected')
   }
-})
+});
 
 const urlSchema = new mongoose.Schema({
   _id: Number,
-  url: String
+  url: String,
 });
 
 const links = mongoose.model('urls', urlSchema);
 
+const getAll = (search, cb) => {
+  links.find({}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      cb(data);
+    }
+  });
+};
 
-
-
-
-
+module.exports.getAll = getAll;
 
 
 // const save = (url, _id, cb) => {

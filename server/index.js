@@ -1,18 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
-const db = require('../database/index.js')
+// const db = require('../database/index.js')
 
-
-app.use(express.static(__dirname + '/../client/dist'))
+app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+  // db.getAll('links', (data) => console.log(data))
+  res.statusCode(200);
+});
 
-
-
-app.listen(3000, () => console.log('YOUVE BEEN SERVED'))
+module.exports = app;
 
 
 // app.get('/populateDB', (req, res) => {
@@ -24,5 +26,3 @@ app.listen(3000, () => console.log('YOUVE BEEN SERVED'))
 //     })
 //   }
 // })
-
-
