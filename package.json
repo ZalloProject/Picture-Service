@@ -9,11 +9,15 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -21,6 +25,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.5.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
