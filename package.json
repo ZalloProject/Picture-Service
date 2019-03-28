@@ -20,6 +20,8 @@
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-pose": "^4.0.8",
+    "styled-components": "^4.2.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {

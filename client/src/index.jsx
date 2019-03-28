@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line import/extensions
 import Pictures from './components/Pictures.jsx';
+import Box from './components/testing.jsx';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       data: [],
+      pose: 'left',
     };
   }
 
@@ -23,11 +25,18 @@ class App extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const divStyle = {
+      height: '458px',
+      width: '962px',
+      overflow: 'scroll',
+    };
+    const { data, pose } = this.state;
     return (
 
-      <div>
-        <Pictures data={data} />
+      <div style={divStyle}>
+        <Box pose={pose}>
+          <Pictures data={data} />
+        </Box>
       </div>
 
     );
