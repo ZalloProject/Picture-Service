@@ -5,7 +5,7 @@ const app = require('./server/index');
 
 
 describe('Testing DB retrieval', () => {
-  test('It should send back 6 records from the database', (done) => {
+  test('It should send back 9 records from the database', (done) => {
     request(app).get('/links').then((response) => {
       const data = response.body;
       expect(data.length).toBe(9);
