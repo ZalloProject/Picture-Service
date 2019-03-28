@@ -11,10 +11,16 @@ const Pictures = ({ data }) => {
     overflow: 'scroll',
   };
   const smallStyle = {
-    height: '225px',
+    height: '226px',
     width: '225px',
     margin: '1px 1px 1px 1px',
   };
+  const largeStyle = {
+    height: '453.5px',
+    width: '456px',
+    marginTop: '1px',
+    marginRight: '1px',
+  }
   if (data.length > 0) {
     const first = data.shift();
     const list = data.reduce((acc, curr) => {
@@ -24,7 +30,7 @@ const Pictures = ({ data }) => {
       return acc;
     }, []);
     list.unshift((
-      <img key={first._id} src={first.url} style={{ height: '452.5px', width: '456px', marginRight: '1px' }} alt="house" />
+      <img key={first._id} src={first.url} style={largeStyle} alt="house" />
     ));
     return (
       <div style={divStyle}>
