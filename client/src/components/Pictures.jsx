@@ -1,40 +1,14 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/extensions */
 import React from 'react';
+import listParser from '../utils/dataParser.jsx';
 
 // eslint-disable-next-line react/prop-types
 const Pictures = ({ data }) => {
-  const divStyle = {
-    height: '458px',
-    display: 'flex',
-    flexFlow: 'column wrap',
-  };
-  const smallStyle = {
-    height: '226px',
-    width: '225px',
-    margin: '1px 1px 1px 1px',
-  };
-  const largeStyle = {
-    height: '453.5px',
-    width: '456px',
-    marginTop: '1px',
-    marginRight: '1px',
-  };
   if (data.length > 0) {
-    const newData = [...data];
-    const first = newData.shift();
-
-    const list = newData.reduce((acc, curr) => {
-      acc.push((
-        <img key={curr._id} src={curr.url} alt="house" style={smallStyle} />
-      ));
-      return acc;
-    }, []);
-    list.unshift((
-      <img key={first._id} src={first.url} style={largeStyle} alt="house" />
-    ));
+    const photos = listParser(data);
     return (
-      <div style={divStyle}>
-        {list}
+      <div className="photoContainer">
+        {photos}
       </div>
     );
   }
