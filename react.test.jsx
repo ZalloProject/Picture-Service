@@ -1,21 +1,19 @@
-import { shallow, mount, render, configure } from 'enzyme';
+/* eslint-disable import/extensions */
+/* eslint-disable no-undef */
+import { shallow, mount, configure } from 'enzyme';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import App from './client/src/App.jsx';
 import listParser from './client/src/utils/dataParser.jsx';
+import fetch from './mock.fetch.jsx';
 
+global.fetch = fetch;
 
 configure({ adapter: new Adapter() });
 
-// test('render a label', () => {
-//   const wrapper = shallow(
-//     <p>Hello Jest!</p>,
-//   );
-//   expect(wrapper.find('p').text()).toBe('Hello Jest!')
-// });
 
 describe('Data parsing function', () => {
-  let testData = [{
+  const testData = [{
     _id: 48,
     url:
      'https://s3-us-west-1.amazonaws.com/photosformockzalloproject/49.jpg',
@@ -84,6 +82,21 @@ describe('Data parsing function', () => {
 
   test('Output length should be same as input length', (done) => {
     expect(listTest.length === testData.length).toBe(true);
-    done()
+    done();
+  });
+});
+
+describe('App', () => {
+  test('It should select the mainContainer class', (done) => {
+    expect(shallow(<App />).is('.mainContainer')).toBe(true);
+    done();
+  });
+  test('The state should change when left or right arrow buttons are clicked', (done) => {
+    const wrapper = mount(<App />);
+    wrapper.find('.rightButton').simulate('click');
+    expect(wrapper.state('pose')).toBe('right');
+    wrapper.find('.leftButton').simulate('click');
+    expect(wrapper.state('pose')).toBe('left');
+    done();
   });
 });
