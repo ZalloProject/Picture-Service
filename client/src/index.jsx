@@ -49,21 +49,24 @@ class App extends Component {
     const { data, pose } = this.state;
     const leftButtonStyle = {
       position: 'fixed',
-      top: '225px',
+      top: '219.25px',
+      left: '48px',
     };
     const rightButtonStyle = {
       position: 'fixed',
-      top: '225px',
-      left: '850px',
+      top: '219.25px',
+      left: '970px',
     };
     return (
 
       <div style={divStyle}>
-        <button type="submit" onClick={this.leftClick} style={leftButtonStyle}>left</button>
-        <Box pose={pose}>
-          <Pictures data={data} />
-        </Box>
-        <button type="submit" onClick={this.rightClick} style={rightButtonStyle}>right</button>
+        <div className="animationContainer">
+          <button type="submit" onClick={this.leftClick} style={leftButtonStyle}>left</button>
+          <Box pose={pose}>
+            <Pictures data={data} />
+          </Box>
+          <button type="submit" onClick={this.rightClick} style={rightButtonStyle}>right</button>
+        </div>
       </div>
 
     );

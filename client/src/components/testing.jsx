@@ -2,8 +2,8 @@ import posed from 'react-pose';
 import styled from 'styled-components';
 
 const Box = styled(posed.div({
-  left: { x: 50 },
-  right: { x: -480 },
+  left: { x: 0 },
+  right: { x: -350 },
 }))`
   background-color: white;
   position: relative;
