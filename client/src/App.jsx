@@ -43,15 +43,17 @@ class App extends Component {
   }
 
   render() {
+    const left = '<';
+    const right = '>';
     const { data, pose } = this.state;
     return (
       <div className="mainContainer">
         <div className="animationContainer">
-          <button type="submit" onClick={this.leftClick} className="leftButton">left</button>
+          <button type="submit" onClick={this.leftClick} className="leftButton">{left}</button>
           <Box pose={pose}>
             <Pictures data={data} />
           </Box>
-          <button type="submit" onClick={this.rightClick} className="rightButton">right</button>
+          <button type="submit" onClick={this.rightClick} className="rightButton">{right}</button>
         </div>
       </div>
     );

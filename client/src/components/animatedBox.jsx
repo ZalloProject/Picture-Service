@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Box = styled(posed.div({
   left: { x: 0 },
-  right: { x: -350 },
+  right: { x: -655 },
 }))`
   background-color: white;
   position: relative;
