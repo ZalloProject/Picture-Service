@@ -12,8 +12,7 @@ class App extends Component {
       data: [],
       pose: 'left',
     };
-    this.leftClick = this.leftClick.bind(this);
-    this.rightClick = this.rightClick.bind(this);
+    this.poseChange = this.poseChange.bind(this);
   }
 
   componentWillMount() {
@@ -30,15 +29,9 @@ class App extends Component {
       });
   }
 
-  leftClick() {
+  poseChange(e) {
     this.setState({
-      pose: 'left',
-    });
-  }
-
-  rightClick() {
-    this.setState({
-      pose: 'right',
+      pose: e.target.id,
     });
   }
 
@@ -49,11 +42,11 @@ class App extends Component {
     return (
       <div className="mainContainer">
         <div className="animationContainer">
-          <button type="submit" onClick={this.leftClick} className="leftButton">{left}</button>
+          <button type="submit" id="left" onClick={this.poseChange} className="leftButton">{left}</button>
           <Box pose={pose}>
             <Pictures data={data} />
           </Box>
-          <button type="submit" onClick={this.rightClick} className="rightButton">{right}</button>
+          <button type="submit" id="right" onClick={this.poseChange} className="rightButton">{right}</button>
         </div>
       </div>
     );
