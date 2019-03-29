@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 const request = require('supertest');
-const app = require('./server/index');
+const app = require('../server/index');
 
 
 describe('Testing DB retrieval', () => {
