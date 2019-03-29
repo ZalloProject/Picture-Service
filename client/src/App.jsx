@@ -17,6 +17,9 @@ class App extends Component {
   }
 
   componentWillMount() {
+    // fetch('http://localhost:3000/populateDB', {
+    //   method: 'GET',
+    // }).then(data => console.log(data));
     fetch('http://localhost:3000/links', {
       method: 'GET',
     }).then(res => res.json())

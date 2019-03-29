@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const random = require('mongoose-simple-random');
 
-mongoose.connect('mongodb://localhost/FEC', (err) => {
+mongoose.connect('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/test?retryWrites=true', (err) => {
   if (err) {
     throw err;
   }
@@ -27,15 +27,15 @@ const getLinks = (cb) => {
 };
 
 // const save = (url, _id, cb) => {
-//   const urls = new links({
+//   console.log('did it happen again?')
+//   links.create({
 //     _id,
 //     url,
-//   });
-//   urls.save((err, allLinks) => {
-//     if (err) {
+//   }, (err, data) => {
+//     if(err) {
 //       throw err;
 //     } else {
-//       cb(allLinks);
+//       cb(data);
 //     }
 //   });
 // };
