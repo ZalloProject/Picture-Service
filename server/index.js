@@ -13,15 +13,15 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  console.log('DID I GET HERE????????');
-  res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
-});
+// app.get('/', (req, res) => {
+//   console.log('DID I GET HERE????????');
+//   res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
+// });
 
-app.get('/style', (req, res) => {
-  console.log('DID I GET HERE????????');
-  res.sendFile(path.join(__dirname, '/../client/src/style.css'));
-});
+// app.get('/style', (req, res) => {
+//   console.log('DID I GET HERE????????');
+//   res.sendFile(path.join(__dirname, '/../client/src/style.css'));
+// });
 
 app.get('/links', (req, res) => {
   db.getLinks((data) => {
