@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../client/src/App.jsx';
 import listParser from '../client/src/utils/dataParser.jsx';
 import fetch from '../mock.fetch.jsx';
+import { wrap } from 'module';
 
 global.fetch = fetch;
 
@@ -87,16 +88,29 @@ describe('Data parsing function', () => {
 });
 
 describe('App', () => {
+  const wrapper = mount(<App />);
   test('It should select the mainContainer class', (done) => {
     expect(shallow(<App />).is('.mainContainer')).toBe(true);
     done();
   });
   test('The state should change when left or right arrow buttons are clicked', (done) => {
-    const wrapper = mount(<App />);
+    // const wrapper = mount(<App />);
     wrapper.find('.rightButton').simulate('click');
     expect(wrapper.state('pose')).toBe('right');
     wrapper.find('.leftButton').simulate('click');
     expect(wrapper.state('pose')).toBe('left');
+    done();
+  });
+  test('App should call componentWillMount on load', (done) => {
+    const spy = jest.spyOn(App.prototype, 'componentWillMount');
+    const wrapper = mount(<App />);
+    expect(spy).toHaveBeenCalled();
+    spy.mockReset();
+    spy.mockRestore();
+    done();
+  });
+  test('Data should load onto state on load from componentWillMount', (done) => {
+    expect(wrapper.state('data').length > 0).toBe(true);
     done();
   });
 });
