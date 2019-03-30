@@ -1,25 +1,25 @@
 const mongoose = require('mongoose');
 const random = require('mongoose-simple-random');
 
-const conn = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/test?retryWrites=true', (err) => {
+const conn2 = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallo-czxy0.mongodb.net/mockDB?retryWrites=true', (err) => {
   if (err) {
     throw err;
   }
 });
 
-const links = new mongoose.Schema({
+const mocks = new mongoose.Schema({
   _id: Number,
   url: String,
 });
 
-links.plugin(random);
+mocks.plugin(random);
 
-const urlSchema = conn.model('urls', links);
+const mockUrlSchema = conn2.model('mockUrls', mocks);
 
 const getLinks = (cb) => {
-  urlSchema.findRandom({}, {}, { limit: 9 }, (err, data) => {
+  mockUrlSchema.findRandom({}, {}, { limit: 9 }, (err, data) => {
     if (err) {
-      console.log(err);
+      throw err;
     } else {
       cb(data);
     }
@@ -27,12 +27,11 @@ const getLinks = (cb) => {
 };
 
 // const save = (url, _id, cb) => {
-//   console.log('did it happen again?')
-//   links.create({
+//   mockUrlSchema.create({
 //     _id,
 //     url,
 //   }, (err, data) => {
-//     if(err) {
+//     if (err) {
 //       throw err;
 //     } else {
 //       cb(data);
