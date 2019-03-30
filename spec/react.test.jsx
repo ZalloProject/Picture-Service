@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 import { shallow, mount, configure } from 'enzyme';
@@ -6,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../client/src/App.jsx';
 import listParser from '../client/src/utils/dataParser.jsx';
 import fetch from '../mock.fetch.jsx';
-import { wrap } from 'module';
+// import { wrap } from 'module';
 
 global.fetch = fetch;
 
@@ -101,8 +102,14 @@ describe('App', () => {
     expect(wrapper.state('pose')).toBe('left');
     done();
   });
+  test('The buttons should render the correct innerText', (done) => {
+    expect(wrapper.find('.leftButton').text()).toBe('<');
+    expect(wrapper.find('.rightButton').text()).toBe('>');
+    done();
+  });
   test('App should call componentWillMount on load', (done) => {
     const spy = jest.spyOn(App.prototype, 'componentWillMount');
+    // eslint-disable-next-line no-unused-vars
     const wrapper = mount(<App />);
     expect(spy).toHaveBeenCalled();
     spy.mockReset();

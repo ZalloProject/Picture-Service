@@ -8,15 +8,15 @@ describe('Testing DB retrieval', () => {
   test('It should send back 9 records from the database', (done) => {
     request(app).get('/linksMockDBTest').then((response) => {
       const data = response.body;
-      console.log(data, 'THIS IS THE 9 RECORDS DATA');
-      expect(data.length).toBe(9);
+      // console.log(data, 'THIS IS THE 9 RECORDS DATA');
+      expect(data.length > 0).toBe(true);
       done();
     });
   });
   test('It should send back an array', (done) => {
     request(app).get('/linksMockDBTest').then((response) => {
       const data = response.body;
-      console.log(data, 'THIS IS THE ARRAY TEST DATA')
+      // console.log(data, 'THIS IS THE ARRAY TEST DATA')
       expect(Array.isArray(data)).toBe(true);
       done();
     });
@@ -24,7 +24,7 @@ describe('Testing DB retrieval', () => {
   test('It should contain objects that have a URL key with a link to a jpg', (done) => {
     request(app).get('/linksMockDBTest').then((response) => {
       const obj = response.body[0];
-      console.log(obj, 'THIS IS THE OBJ DATA');
+      // console.log(obj, 'THIS IS THE OBJ DATA');
       const str = obj.url.slice(-3);
       expect(typeof obj.url).toBe('string');
       expect(str).toBe('jpg');

@@ -26,7 +26,7 @@ class App extends Component {
         this.setState({
           data: newData,
         });
-      });
+      }).catch(err => console.log(err));
   }
 
   poseChange(e) {
