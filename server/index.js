@@ -15,24 +15,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/links', (req, res) => {
-  // const promises = [];
-  // for (let i = 0; i < 9; i += 1) {
-  //   const promise = new Promise((resolve, reject) => {
-  //     db.getLinks((data) => {
-  //       resolve(data);
-  //     });
-  //   });
-  //   promises.push(promise);
-  // }
-  // Promise.all(promises).then(data => console.log(data));
-  const returnArr = [];
   db.getLinks((data) => {
-    for (let i = 0; i < 9; i += 1) {
-      const index = Math.floor(Math.random() * data.length);
-      returnArr.push(data[index]);
-      data.splice(index, 1);
-    }
-    res.json(returnArr);
+    res.json(data);
   });
 });
 
