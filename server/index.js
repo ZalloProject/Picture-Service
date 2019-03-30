@@ -20,12 +20,14 @@ app.get('/links', (req, res) => {
 });
 
 // app.get('/populateDB', (req, res) => {
-//   for (let i = 0; i < 100; i + 1) {
+//   for (let i = 0; i < 100; i += 1) {
 //     const str = `https://s3-us-west-1.amazonaws.com/photosformockzalloproject/${i + 1}.jpg`;
 //     db.save(str, i, (result) => {
 //       console.log(result);
 //     });
+//     console.log(i, 'THIS IS IIIIIIIII')
 //   }
+//   res.end();
 // });
 
 module.exports = app;
