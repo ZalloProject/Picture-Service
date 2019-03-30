@@ -4,6 +4,12 @@
   "description": "",
   "author": "",
   "license": "",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "engines": {
     "node": ">=6.13.0"
   },
@@ -18,6 +24,7 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
     "extract-text-webpack-plugin": "^3.0.2",
+    "identity-obj-proxy": "^3.0.0",
     "mongoose": "^5.4.20",
     "mongoose-simple-random": "^0.4.1",
     "nodemon": "^1.18.10",
@@ -43,6 +50,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.5.0",
+    "jest-css-modules": "^1.1.0",
     "react-addons-test-utils": "^15.6.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"

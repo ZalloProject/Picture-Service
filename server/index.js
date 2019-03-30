@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const mockDB = require('../mockDatabase/mockDB.js');
 const fs = require('fs');
 const cors = require('cors');
+const mockDB = require('../mockDatabase/mockDB.js');
 
 const app = express();
 const db = require('../database/index.js');
