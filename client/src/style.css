@@ -1,0 +1,91 @@
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+
+.menu-wrapper {
+  max-width: 900px
+}
+.menu-item-wrapper.active {
+  border: 1px blue solid;
+}
+.menu-item.active {
+  border: 1px green solid;
+}
+ 
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.sc-bdVaJa {
+  z-index: -1;
+}
+
+.animationContainer {
+  transform: translate(-5%);
+}
+
+.firstImage {
+  height: 414px;
+  width: 545px;
+  margin-top: 1px;
+  margin-right: 1px;
+}
+
+.smallImages {
+  height: 206px;
+  width: 278px;
+  margin: 1px 1px 1px 1px;
+}
+
+.photoContainer {
+  height: 458px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.leftButton {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: fixed;
+  top: 185.5px;
+  left: 48px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.rightButton {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: fixed;
+  top: 185.5px;
+  left: 979.5px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.mainContainer {
+  height: 458px;
+  width: 962px;
+  overflow: hidden;
+}
+
+.rightButton:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
+
+.leftButton:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 

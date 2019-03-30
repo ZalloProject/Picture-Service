@@ -2,16 +2,25 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mockDB = require('../mockDatabase/mockDB.js');
+const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
 const db = require('../database/index.js');
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.statusCode(200);
+  console.log('DID I GET HERE????????');
+  res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
+});
+
+app.get('/style', (req, res) => {
+  console.log('DID I GET HERE????????');
+  res.sendFile(path.join(__dirname, '/../client/src/style.css'));
 });
 
 app.get('/links', (req, res) => {
