@@ -6,17 +6,18 @@ const app = require('../server/index');
 describe('Testing API', () => {
   test('It should send back a javascript file', (done) => {
     request(app).get('/').then((response) => {
-      const str = response.headers['content-type'].split(';');
-      expect(str[0] === 'application/javascript').toBe(true);
+      const jsStr = response.headers['content-type'].split(';');
+      console.log(jsStr, 'THIS IS THE JS STRING');
+      expect(jsStr[0] === 'application/javascript').toBe(true);
       done();
     });
   });
 
   test('It should send back a css file', (done) => {
     request(app).get('/style').then((response) => {
-      const str = response.headers['content-type'].split(';');
-      console.log(str, 'THIS IS THE STR')
-      expect(str[0] === 'text/css').toBe(true);
+      const cssStr = response.headers['content-type'].split(';');
+      console.log(str, 'THIS IS THE CSS STR');
+      expect(cssStr[0] === 'text/css').toBe(true);
       done();
     });
   });
