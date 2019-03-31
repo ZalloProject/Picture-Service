@@ -3,6 +3,22 @@
 const request = require('supertest');
 const app = require('../server/index');
 
+describe('Testing API', () => {
+  test('It should send back a javascript file', (done) => {
+    request(app).get('/').then((response) => {
+      const str = response.headers['content-type'].split(';');
+      expect(str[0] === 'application/javascript').toBe(true);
+      done();
+    });
+  });
+  test('It should send back a css file', (done) => {
+    request(app).get('/style').then((response) => {
+      const str = response.headers['content-type'].split(';');
+      expect(str[0] === 'text/css').toBe(true);
+      done();
+    });
+  });
+});
 
 describe('Testing DB retrieval', () => {
   test('It should send back 9 records from the database', (done) => {
