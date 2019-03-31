@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
+app.get('/jsBundle', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
 });
 

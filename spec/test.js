@@ -5,7 +5,7 @@ const app = require('../server/index');
 
 describe('Testing API', () => {
   test('It should send back a javascript file', (done) => {
-    request(app).get('/').then((response) => {
+    request(app).get('/jsBundle').then((response) => {
       const jsStr = response.headers['content-type'].split(';');
       console.log(jsStr, 'THIS IS THE JS STRING');
       expect(jsStr[0] === 'application/javascript').toBe(true);
