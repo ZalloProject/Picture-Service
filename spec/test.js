@@ -4,14 +4,14 @@ const request = require('supertest');
 const app = require('../server/index');
 
 describe('Testing API', () => {
-  test('It should send back a javascript file', (done) => {
-    request(app).get('/jsBundle').then((response) => {
-      const jsStr = response.headers['content-type'].split(';');
-      console.log(jsStr, 'THIS IS THE JS STRING');
-      expect(jsStr[0] === 'application/javascript').toBe(true);
-      done();
-    });
-  });
+  // test('It should send back a javascript file', (done) => {
+  //   request(app).get('/jsBundle').then((response) => {
+  //     const jsStr = response.headers['content-type'].split(';');
+  //     console.log(jsStr, 'THIS IS THE JS STRING');
+  //     expect(jsStr[0] === 'application/javascript').toBe(true);
+  //     done();
+  //   });
+  // });
 
   test('It should send back a css file', (done) => {
     request(app).get('/style').then((response) => {
