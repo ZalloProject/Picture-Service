@@ -15,6 +15,7 @@ describe('Testing API', () => {
   test('It should send back a css file', (done) => {
     request(app).get('/style').then((response) => {
       const str = response.headers['content-type'].split(';');
+      console.log(str, 'THIS IS THE STR')
       expect(str[0] === 'text/css').toBe(true);
       done();
     });
