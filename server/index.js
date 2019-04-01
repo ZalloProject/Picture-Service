@@ -8,17 +8,17 @@ const app = express();
 const db = require('../database/index.js');
 
 app.use(cors());
-// app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/jsBundle', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
-});
+// app.get('/jsBundle', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
+// });
 
-app.get('/style', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/src/style.css'));
-});
+// app.get('/style', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../client/src/style.css'));
+// });
 
 app.get('/links', (req, res) => {
   db.getLinks((data) => {

@@ -10,21 +10,11 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
-          },
         },
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader'),
-      }, {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader'),
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]',
-        },
+        loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
       },
     ],
   },
@@ -32,7 +22,4 @@ module.exports = {
     filename: 'bundle.js',
     path: path.join(__dirname, '/client/dist'),
   },
-  plugins: [
-    new ExtractTextPlugin('style.css'),
-  ],
 };
