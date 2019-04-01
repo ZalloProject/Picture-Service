@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Pictures from './components/Pictures.jsx';
 import Box from './components/animatedBox.jsx';
+import style from './style.css';
 
 
 class App extends Component {
@@ -40,13 +41,13 @@ class App extends Component {
     const right = '>';
     const { data, pose } = this.state;
     return (
-      <div className="mainContainer">
-        <div className="animationContainer">
-          <button type="submit" id="left" onClick={this.poseChange} className="leftButton">{left}</button>
+      <div className={style.mainContainer}>
+        <div className={style.animationContainer}>
+          <button type="submit" id="left" onClick={this.poseChange} className={style.leftButton}>{left}</button>
           <Box pose={pose}>
             <Pictures data={data} />
           </Box>
-          <button type="submit" id="right" onClick={this.poseChange} className="rightButton">{right}</button>
+          <button type="submit" id="right" onClick={this.poseChange} className={style.rightButton}>{right}</button>
         </div>
       </div>
     );

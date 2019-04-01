@@ -7,7 +7,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../client/src/App.jsx';
 import listParser from '../client/src/utils/dataParser.jsx';
 import fetch from '../mock.fetch.jsx';
-// import { wrap } from 'module';
 
 global.fetch = fetch;
 
@@ -95,7 +94,6 @@ describe('App', () => {
     done();
   });
   test('The state should change when left or right arrow buttons are clicked', (done) => {
-    // const wrapper = mount(<App />);
     wrapper.find('.rightButton').simulate('click');
     expect(wrapper.state('pose')).toBe('right');
     wrapper.find('.leftButton').simulate('click');
