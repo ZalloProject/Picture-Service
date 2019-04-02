@@ -15,11 +15,12 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "server/server.js",
+    "start": "node server/server",
     "start-nodemon": "nodemon server/server.js",
     "test": "jest --coverage"
   },
   "dependencies": {
+    "aws-sdk": "^2.434.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
