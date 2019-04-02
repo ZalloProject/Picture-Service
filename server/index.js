@@ -7,6 +7,8 @@ const mockDB = require('../mockDatabase/mockDB.js');
 const app = express();
 const db = require('../database/index.js');
 
+require('dotenv').config();
+
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
