@@ -8,22 +8,17 @@ const mockDB = require('../mockDatabase/mockDB.js');
 const app = express();
 const db = require('../database/index.js');
 
-require('dotenv').config();
-
 app.use(cors());
 // app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 
-// function shouldCompress(req, res) {
-//   if (req.headers['x-no-compression']) {
-//     // don't compress responses with this request header
-//     return false;
-//   }
-//   // fallback to standard filter function
-//   return compression.filter(req, res);
-// }
+app.get('/jsbundle', (req, res) => {
+  res.set('Content-Type', 'application/javascript');
+  res.set('Content-Encoding', 'gzip');
+  res.sendFile(path.join(__dirname, '/../client/dist/vendors.bundle.js.gz'));
+});
 
 app.get('/links', (req, res) => {
   db.getLinks((data) => {
