@@ -28,14 +28,15 @@ const getLinks = (cb) => {
 
 // const save = (url, _id, cb) => {
 //   console.log('did it happen again?')
-//   links.create({
+//   const newLinks = new urlSchema({
 //     _id,
 //     url,
-//   }, (err, data) => {
-//     if(err) {
-//       throw err;
+//   });
+//   newLinks.save((err, data) => {
+//     if (err) {
+//       console.log(err);
 //     } else {
-//       cb(data);
+//       console.log(data);
 //     }
 //   });
 // };

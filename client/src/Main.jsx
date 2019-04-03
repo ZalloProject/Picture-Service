@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // fetch('http://localhost:3000/populateDB', {
+    // fetch('http://localhost:8081/populateDB', {
     //   method: 'GET',
     // }).then(data => console.log(data));
     fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
