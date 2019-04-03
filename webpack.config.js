@@ -1,4 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, '/client/src/index.jsx'),
@@ -20,5 +23,8 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/client/dist'),
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
   },
 };
