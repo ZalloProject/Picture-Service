@@ -58,7 +58,10 @@
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 1;
 }
+
+
 
 .rightButton {
   background-color: grey;

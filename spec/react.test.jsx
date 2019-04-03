@@ -4,7 +4,7 @@
 import { shallow, mount, configure } from 'enzyme';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../client/src/App.jsx';
+import App from '../client/src/Main.jsx';
 import listParser from '../client/src/utils/dataParser.jsx';
 import fetch from '../mock.fetch.jsx';
 

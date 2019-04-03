@@ -2,24 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const compression = require('compression');
 const mockDB = require('../mockDatabase/mockDB.js');
 
 const app = express();
 const db = require('../database/index.js');
 
-require('dotenv').config();
-
 app.use(cors());
-app.use(express.static(path.join(__dirname, '/../client/dist')));
+// app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(compression());
 
-app.get('/jsBundle', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
-});
-
-app.get('/style', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/src/style.css'));
+app.get('/jsbundle', (req, res) => {
+  res.set('Content-Type', 'application/javascript');
+  res.set('Content-Encoding', 'gzip');
+  res.sendFile(path.join(__dirname, '/../client/dist/vendors.bundle.js.gz'));
 });
 
 app.get('/links', (req, res) => {
