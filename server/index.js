@@ -21,6 +21,7 @@ app.use(compression());
 // });
 
 app.get('/links', (req, res) => {
+  console.log('did I make it here?????')
   db.getLinks((data) => {
     console.log(data);
     res.json(data);

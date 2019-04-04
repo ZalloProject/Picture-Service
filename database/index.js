@@ -21,6 +21,7 @@ const getLinks = (cb) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(data);
       cb(data);
     }
   });
