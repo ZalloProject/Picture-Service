@@ -12,12 +12,6 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.get('/jsbundle', (req, res) => {
-//   res.set('Content-Type', 'application/javascript');
-//   res.set('Content-Encoding', 'gzip');
-//   res.sendFile(path.join(__dirname, '/../client/dist/vendors.bundle.js.gz'));
-// });
-
 app.get('/links', (req, res) => {
   db.getLinks((data) => {
     res.json(data);

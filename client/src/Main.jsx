@@ -1,8 +1,8 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable import/extensions */
 import React, { Component } from 'react';
 
 import Pictures from './components/Pictures.jsx';
-import Box from './components/animatedBox.jsx';
 import style from './style.css';
 
 class App extends Component {
@@ -10,9 +10,10 @@ class App extends Component {
     super();
     this.state = {
       data: [],
-      pose: 'left',
     };
-    this.poseChange = this.poseChange.bind(this);
+    this.rightRef = React.createRef();
+    this.scrollRight = this.scrollRight.bind(this);
+    this.scrollLeft = this.scrollLeft.bind(this);
   }
 
   componentWillMount() {
@@ -29,26 +30,24 @@ class App extends Component {
       }).catch(err => console.log(err));
   }
 
-  poseChange(e) {
-    this.setState({
-      pose: e.target.id,
-    });
+  scrollRight() {
+    this.rightRef.scrollLeft += 500;
+  }
+
+  scrollLeft() {
+    this.rightRef.scrollLeft -= 500;
   }
 
   render() {
     const left = '<';
     const right = '>';
-    const { data, pose } = this.state;
+    const { data } = this.state;
     return (
       <div>
-        <div className={style.mainContainer}>
-          <div className={style.animationContainer}>
-            <button type="submit" id="left" onClick={this.poseChange} className={style.leftButton}>{left}</button>
-            <Box pose={pose}>
-              <Pictures data={data} />
-            </Box>
-            <button type="submit" id="right" onClick={this.poseChange} className={style.rightButton}>{right}</button>
-          </div>
+        <div className={style.mainContainer} ref={r => this.rightRef = r}>
+          <button type="submit" id="left" onClick={this.scrollLeft} className={style.leftButton}>{left}</button>
+          <Pictures data={data} />
+          <button type="submit" id="right" onClick={this.scrollRight} className={style.rightButton}>{right}</button>
         </div>
       </div>
     );

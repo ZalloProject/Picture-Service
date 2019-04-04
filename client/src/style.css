@@ -53,8 +53,7 @@
   height: 40px;
   width: 30px;
   position: fixed;
-  top: 185.5px;
-  left: 48px;
+  top: 193.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
@@ -68,8 +67,8 @@
   height: 40px;
   width: 30px;
   position: fixed;
-  top: 185.5px;
-  left: 979.5px;
+  top: 193.5px;
+  left: 939.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
@@ -78,7 +77,15 @@
 .mainContainer {
   height: 458px;
   width: 962px;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.mainContainer::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
 }
 
 .rightButton:hover {
