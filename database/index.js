@@ -16,6 +16,7 @@ links.plugin(random);
 
 const urlSchema = conn.model('urls', links);
 
+
 const getLinks = (cb) => {
   const randomNumber = Math.floor(Math.random() * 50);
   urlSchema.findRandom({}, {}, { limit: randomNumber }, (err, data) => {
