@@ -11,7 +11,6 @@ class App extends Component {
     this.state = {
       data: [],
       pose: 'left',
-      renderTracker: 0,
     };
     this.poseChange = this.poseChange.bind(this);
   }
@@ -20,7 +19,6 @@ class App extends Component {
     // fetch('http://localhost:8081/populateDB', {
     //   method: 'GET',
     // }).then(data => console.log(data));
-    // 'http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links'
     fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
@@ -32,12 +30,6 @@ class App extends Component {
   }
 
   poseChange(e) {
-    const { renderTracker } = this.state;
-    if (e.target.id === 'right') {
-      this.setState({
-        renderTracker: renderTracker + 1,
-      });
-    }
     this.setState({
       pose: e.target.id,
     });
@@ -46,19 +38,18 @@ class App extends Component {
   render() {
     const left = '<';
     const right = '>';
-    const { data, pose, renderTracker } = this.state;
+    const { data, pose } = this.state;
     return (
       <div>
         <div className={style.mainContainer}>
           <div className={style.animationContainer}>
             <button type="submit" id="left" onClick={this.poseChange} className={style.leftButton}>{left}</button>
             <Box pose={pose}>
-              <Pictures data={data} tracker={renderTracker} />
+              <Pictures data={data} />
             </Box>
             <button type="submit" id="right" onClick={this.poseChange} className={style.rightButton}>{right}</button>
           </div>
         </div>
-        <div className="takeOverPage" />
       </div>
     );
   }

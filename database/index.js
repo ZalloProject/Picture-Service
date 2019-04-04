@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const random = require('mongoose-simple-random');
 
-const conn = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/test?retryWrites=true', (err) => {
+const conn = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/mockData?retryWrites=true', (err) => {
   if (err) {
     throw err;
   }
@@ -28,7 +28,6 @@ const getLinks = (cb) => {
 };
 
 // const save = (url, _id, cb) => {
-//   console.log('did it happen again?')
 //   const newLinks = new urlSchema({
 //     _id,
 //     url,

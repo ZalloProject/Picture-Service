@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
-import { shallow, mount, configure } from 'enzyme';
+import { mount, configure } from 'enzyme';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../client/src/Main.jsx';
@@ -89,10 +89,6 @@ describe('Data parsing function', () => {
 
 describe('App', () => {
   const wrapper = mount(<App />);
-  // test('It should select the mainContainer class', (done) => {
-  //   expect(shallow(<App />).is('.mainContainer')).toBe(true);
-  //   done();
-  // });
   test('The state should change when left or right arrow buttons are clicked', (done) => {
     wrapper.find('.rightButton').simulate('click');
     expect(wrapper.state('pose')).toBe('right');
