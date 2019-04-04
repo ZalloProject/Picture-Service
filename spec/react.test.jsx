@@ -89,10 +89,10 @@ describe('Data parsing function', () => {
 
 describe('App', () => {
   const wrapper = mount(<App />);
-  test('It should select the mainContainer class', (done) => {
-    expect(shallow(<App />).is('.mainContainer')).toBe(true);
-    done();
-  });
+  // test('It should select the mainContainer class', (done) => {
+  //   expect(shallow(<App />).is('.mainContainer')).toBe(true);
+  //   done();
+  // });
   test('The state should change when left or right arrow buttons are clicked', (done) => {
     wrapper.find('.rightButton').simulate('click');
     expect(wrapper.state('pose')).toBe('right');
