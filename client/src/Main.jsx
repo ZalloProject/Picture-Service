@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 
 import Pictures from './components/Pictures.jsx';
+import Popup from './components/Popup.jsx';
 import style from './style.css';
 
 class App extends Component {
@@ -10,10 +11,15 @@ class App extends Component {
     super();
     this.state = {
       data: [],
+      popCurr: null,
+      popCheck: false,
     };
     this.rightRef = React.createRef();
     this.scrollRight = this.scrollRight.bind(this);
     this.scrollLeft = this.scrollLeft.bind(this);
+    this.popCurrStart = this.popCurrStart.bind(this);
+    this.currChange = this.currChange.bind(this);
+    this.closePop = this.closePop.bind(this);
   }
 
   componentWillMount() {
@@ -30,6 +36,34 @@ class App extends Component {
       }).catch(err => console.log(err));
   }
 
+  popCurrStart(e) {
+    this.setState({
+      popCurr: e.target.id,
+      popCheck: true,
+    });
+  }
+
+  closePop() {
+    this.setState({
+      popCheck: false,
+    });
+  }
+
+  currChange(e) {
+    let { popCurr } = this.state;
+    const { data } = this.state;
+    if (e.target.id === 'next') {
+      popCurr = Number(popCurr) + 1;
+    } else {
+      popCurr = Number(popCurr) - 1;
+    }
+    if (popCurr > 0 && popCurr < data.length) {
+      this.setState({
+        popCurr,
+      });
+    }
+  }
+
   scrollRight() {
     this.rightRef.scrollLeft += 500;
   }
@@ -41,13 +75,31 @@ class App extends Component {
   render() {
     const left = '<';
     const right = '>';
-    const { data } = this.state;
+    const { data, popCheck, popCurr } = this.state;
     return (
       <div>
         <div className={style.mainContainer} ref={r => this.rightRef = r}>
           <button type="submit" id="left" onClick={this.scrollLeft} className={style.leftButton}>{left}</button>
-          <Pictures data={data} />
-          <button type="submit" id="right" onClick={this.scrollRight} className={style.rightButton}>{right}</button>
+          <Pictures
+            data={data}
+            scrollRight={this.scrollRight}
+            currChange={this.popCurrStart}
+          />
+          <button
+            type="submit"
+            id="right"
+            onClick={this.scrollRight}
+            className={style.rightButton}
+          >
+            {right}
+          </button>
+          <Popup
+            check={popCheck}
+            curr={popCurr}
+            photos={data}
+            change={this.currChange}
+            close={this.closePop}
+          />
         </div>
       </div>
     );

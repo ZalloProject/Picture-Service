@@ -52,12 +52,11 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
+  position: absolute;
   top: 193.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
-  z-index: 1;
 }
 
 
@@ -66,21 +65,23 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
+  position: absolute;
   top: 193.5px;
-  left: 939.5px;
+  margin-left: 931.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
 }
 
 .mainContainer {
+  display: flex;
   height: 458px;
   width: 962px;
   overflow-x: scroll;
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none; 
+  position: relative;
 }
 
 .mainContainer::-webkit-scrollbar { /* WebKit */
