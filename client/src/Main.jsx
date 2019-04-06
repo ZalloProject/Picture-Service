@@ -69,10 +69,12 @@ class App extends Component {
   }
 
   scrollRight() {
+    console.log(this.rightRef, 'DID I MAKE IT HERE');
     this.rightRef.scrollLeft += 500;
   }
 
   scrollLeft() {
+    console.log(this.rightRef, 'DID I MAKE IT HERE????? LEFT');
     this.rightRef.scrollLeft -= 500;
   }
 
@@ -81,32 +83,24 @@ class App extends Component {
     const right = '>';
     const { data, popCheck, popCurr } = this.state;
     return (
-      <div>
+      <div className={style.mainDiv}>
+        <button
+          type="submit"
+          id="left"
+          onClick={this.scrollLeft}
+          className={style.leftButton}
+        >
+          {left}
+        </button>
         <div
           className={style.mainContainer}
           ref={r => this.rightRef = r}
         >
-          <button
-            type="submit"
-            id="left"
-            onClick={this.scrollLeft}
-            className={style.leftButton}
-          >
-            {left}
-          </button>
           <Pictures
             data={data}
             scrollRight={this.scrollRight}
             currChange={this.popCurrStart}
           />
-          <button
-            type="submit"
-            id="right"
-            onClick={this.scrollRight}
-            className={style.rightButton}
-          >
-            {right}
-          </button>
           <Popup
             check={popCheck}
             curr={popCurr}
@@ -115,6 +109,14 @@ class App extends Component {
             close={this.closePop}
           />
         </div>
+        <button
+          type="submit"
+          id="right"
+          onClick={this.scrollRight}
+          className={style.rightButton}
+        >
+          {right}
+        </button>
       </div>
     );
   }

@@ -46,17 +46,19 @@
   height: 458px;
   display: flex;
   flex-flow: column wrap;
+  position: relative;
 }
 
 .leftButton {
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 193.5px;
+  margin-top: 185.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 1;
+  margin-right: -30px;
 }
 
 
@@ -65,35 +67,45 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 193.5px;
-  margin-left: 931.5px;
+  margin-top: 185.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 1;
+  margin-left: -30px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 962px;
+  position: absolute;
+  z-index: 1;
 }
 
 .prev {
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 193.5px;
+  position: absolute;
+  top: 185.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 2;
 }
 
 .next {
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 193.5px;
+  position: absolute;
+  top: 185.5px;
   margin-left: 931.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 2;
 }
 
 .mainContainer {
@@ -103,7 +115,6 @@
   overflow: hidden;
   position: relative;
 }
-
 
 .rightButton:hover {
   background-color: #272222;;
@@ -118,7 +129,7 @@
 } 
 
 .closeStyle {
-  position: fixed;
+  position: absolute;
   height: 30px;
   font-size: 20px;
   margin-left: 724px;
@@ -137,5 +148,9 @@
   width: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.mainDiv {
   display: flex;
 }
