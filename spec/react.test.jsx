@@ -12,6 +12,7 @@ global.fetch = fetch;
 
 configure({ adapter: new Adapter() });
 
+const wrapper = mount(<App />);
 
 describe('Data parsing function', () => {
   const testData = [{
@@ -88,12 +89,11 @@ describe('Data parsing function', () => {
 });
 
 describe('App', () => {
-  const wrapper = mount(<App />);
   test('The state should change when left or right arrow buttons are clicked', (done) => {
-    wrapper.find('.rightButton').simulate('click');
-    expect(wrapper.state('pose')).toBe('right');
-    wrapper.find('.leftButton').simulate('click');
-    expect(wrapper.state('pose')).toBe('left');
+    setTimeout(() => {
+      wrapper.find('.firstImage').simulate('click');
+      expect(wrapper.state('popCurr')).toBe(0);
+    }, 2000);
     done();
   });
   test('The buttons should render the correct innerText', (done) => {

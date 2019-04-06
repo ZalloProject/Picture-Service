@@ -52,7 +52,7 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: absolute;
+  position: fixed;
   top: 193.5px;
   outline: none;
   font-size: 20px;
@@ -65,7 +65,30 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: absolute;
+  position: fixed;
+  top: 193.5px;
+  margin-left: 931.5px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.prev {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: fixed;
+  top: 193.5px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.next {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: fixed;
   top: 193.5px;
   margin-left: 931.5px;
   outline: none;
@@ -77,17 +100,10 @@
   display: flex;
   height: 458px;
   width: 962px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none; 
+  overflow: hidden;
   position: relative;
 }
 
-.mainContainer::-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
-}
 
 .rightButton:hover {
   background-color: #272222;;
@@ -100,3 +116,26 @@
   color: white;
   opacity: .8;
 } 
+
+.closeStyle {
+  position: fixed;
+  height: 30px;
+  font-size: 20px;
+  margin-left: 724px;
+  background-color: grey;
+  opacity: .5;
+}
+
+.popImageStyle {
+  height: 100%;
+  width: 545px;
+  margin: auto;
+}
+
+.popMainContainer {
+  height: 90.70%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}

@@ -1,7 +1,6 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable import/extensions */
 import React, { Component } from 'react';
-
 import Pictures from './components/Pictures.jsx';
 import Popup from './components/Popup.jsx';
 import style from './style.css';
@@ -13,6 +12,7 @@ class App extends Component {
       data: [],
       popCurr: null,
       popCheck: false,
+      prevSpot: null,
     };
     this.rightRef = React.createRef();
     this.scrollRight = this.scrollRight.bind(this);
@@ -40,10 +40,14 @@ class App extends Component {
     this.setState({
       popCurr: e.target.id,
       popCheck: true,
+      prevSpot: this.rightRef.scrollLeft,
     });
+    this.rightRef.scrollLeft -= 50000000000000;
   }
 
   closePop() {
+    const { prevSpot } = this.state;
+    this.rightRef.scrollLeft += prevSpot;
     this.setState({
       popCheck: false,
     });
@@ -52,7 +56,7 @@ class App extends Component {
   currChange(e) {
     let { popCurr } = this.state;
     const { data } = this.state;
-    if (e.target.id === 'next') {
+    if (e.target.className === style.next) {
       popCurr = Number(popCurr) + 1;
     } else {
       popCurr = Number(popCurr) - 1;
@@ -78,8 +82,18 @@ class App extends Component {
     const { data, popCheck, popCurr } = this.state;
     return (
       <div>
-        <div className={style.mainContainer} ref={r => this.rightRef = r}>
-          <button type="submit" id="left" onClick={this.scrollLeft} className={style.leftButton}>{left}</button>
+        <div
+          className={style.mainContainer}
+          ref={r => this.rightRef = r}
+        >
+          <button
+            type="submit"
+            id="left"
+            onClick={this.scrollLeft}
+            className={style.leftButton}
+          >
+            {left}
+          </button>
           <Pictures
             data={data}
             scrollRight={this.scrollRight}
