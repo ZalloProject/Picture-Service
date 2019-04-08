@@ -43,8 +43,8 @@ class App extends Component {
         popCheck: true,
         prevSpot: this.rightRef.scrollLeft,
       });
-      this.rightRef.scrollLeft -= 50000000000000;
-    };
+      this.rightRef.scrollLeft -= 6750;
+    }
   }
 
   closePop() {
