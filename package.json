@@ -17,7 +17,8 @@
     "react-dev": "webpack -d --watch",
     "start": "node server/server",
     "start-nodemon": "nodemon server/server.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "prod-build": "webpack --mode production"
   },
   "dependencies": {
     "aws-sdk": "^2.434.0",
