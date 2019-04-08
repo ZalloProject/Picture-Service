@@ -12,12 +12,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/bundle', (req, res) => {
-  res.set('Content-Type', 'application/javascript');
-  // res.set('Content-Encoding', 'gzip');
-  res.sendFile(path.join(__dirname, '/../client/dist/bundle.js'));
-});
-
 app.get('/links', (req, res) => {
   db.getLinks((data) => {
     res.json(data);
