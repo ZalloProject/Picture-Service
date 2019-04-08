@@ -130,8 +130,8 @@
 
 .closeStyle {
   position: absolute;
-  height: 30px;
   font-size: 20px;
+  outline: none;
   margin-left: 724px;
   background-color: grey;
   opacity: .5;
