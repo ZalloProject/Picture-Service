@@ -37,12 +37,14 @@ class App extends Component {
   }
 
   popCurrStart(e) {
-    this.setState({
-      popCurr: e.target.id,
-      popCheck: true,
-      prevSpot: this.rightRef.scrollLeft,
-    });
-    this.rightRef.scrollLeft -= 50000000000000;
+    if (window.innerWidth >= 995) {
+      this.setState({
+        popCurr: e.target.id,
+        popCheck: true,
+        prevSpot: this.rightRef.scrollLeft,
+      });
+      this.rightRef.scrollLeft -= 50000000000000;
+    };
   }
 
   closePop() {
@@ -69,12 +71,10 @@ class App extends Component {
   }
 
   scrollRight() {
-    console.log(this.rightRef, 'DID I MAKE IT HERE');
     this.rightRef.scrollLeft += 500;
   }
 
   scrollLeft() {
-    console.log(this.rightRef, 'DID I MAKE IT HERE????? LEFT');
     this.rightRef.scrollLeft -= 500;
   }
 
