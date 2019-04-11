@@ -3,7 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import style from '../style.css';
-
+//function to parse incoming photo data into image elements
 const listParser = (data, fn) => {
   const newData = [...data];
   const first = newData.shift();

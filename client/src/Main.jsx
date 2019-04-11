@@ -24,11 +24,8 @@ class App extends Component {
     this.houseView = this.houseView.bind(this);
     window.addEventListener('house_view', this.houseView);
   }
-
+  //fetching links on mount
   componentWillMount() {
-    // fetch('http://localhost:8081/populateDB', {
-    //   method: 'GET',
-    // }).then(data => console.log(data));
     fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
@@ -38,7 +35,7 @@ class App extends Component {
         });
       }).catch(err => console.log(err));
   }
-
+  //method to refresh the picture component when other microservices trigger it with global event
   houseView() {
     fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
@@ -50,6 +47,7 @@ class App extends Component {
       }).catch(err => console.log(err));
   }
 
+  //method to set the index of where the pop up will start
   popCurrStart(e) {
     if (window.innerWidth >= 995) {
       this.setState({
@@ -57,10 +55,11 @@ class App extends Component {
         popCheck: true,
         prevSpot: this.rightRef.scrollLeft,
       });
+      //this moves div to pop up if it is scrolled over
       this.rightRef.scrollLeft -= 6750;
     }
   }
-
+  //method to close the pop up
   closePop() {
     const { prevSpot } = this.state;
     this.rightRef.scrollLeft += prevSpot;
@@ -68,7 +67,7 @@ class App extends Component {
       popCheck: false,
     });
   }
-
+  //method to change the insex of the pop up
   currChange(e) {
     let { popCurr } = this.state;
     const { data } = this.state;
@@ -83,7 +82,7 @@ class App extends Component {
       });
     }
   }
-
+  //methods to make the picture div scroll on click
   scrollRight() {
     this.rightRef.scrollLeft += 500;
   }

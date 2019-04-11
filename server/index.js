@@ -24,14 +24,4 @@ app.get('/linksMockDBTest', (req, res) => {
   });
 });
 
-// app.get('/populateDB', (req, res) => {
-//   for (let i = 0; i < 100; i += 1) {
-//     const str = `https://s3-us-west-1.amazonaws.com/photosformockzalloproject/${i + 1}.jpg`;
-//     db.save(str, i, (result) => {
-//       console.log(result);
-//     });
-//   }
-//   res.end();
-// });
-
 module.exports = app;
