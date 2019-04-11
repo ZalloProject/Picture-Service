@@ -5,6 +5,7 @@ import Pictures from './components/Pictures.jsx';
 import Popup from './components/Popup.jsx';
 import style from './style.css';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -20,12 +21,25 @@ class App extends Component {
     this.popCurrStart = this.popCurrStart.bind(this);
     this.currChange = this.currChange.bind(this);
     this.closePop = this.closePop.bind(this);
+    this.houseView = this.houseView.bind(this);
+    window.addEventListener('house_view', this.houseView);
   }
 
   componentWillMount() {
     // fetch('http://localhost:8081/populateDB', {
     //   method: 'GET',
     // }).then(data => console.log(data));
+    fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
+      method: 'GET',
+    }).then(res => res.json())
+      .then((newData) => {
+        this.setState({
+          data: newData,
+        });
+      }).catch(err => console.log(err));
+  }
+
+  houseView() {
     fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())

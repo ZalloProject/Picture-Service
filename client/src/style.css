@@ -116,6 +116,18 @@
   position: relative;
 }
 
+.prev:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
+
+.next:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
+
 .rightButton:hover {
   background-color: #272222;;
   color: white;
@@ -137,6 +149,12 @@
   opacity: .5;
   width: 30px;
 }
+
+.closeStyle:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
 
 .popImageStyle {
   height: 100%;
