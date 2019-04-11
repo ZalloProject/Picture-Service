@@ -4,9 +4,9 @@ import listParser from '../utils/dataParser.jsx';
 import style from '../style.css';
 
 // eslint-disable-next-line react/prop-types
-const Pictures = ({ data }) => {
+const Pictures = ({ data, currChange }) => {
   if (data.length > 0) {
-    const photos = listParser(data);
+    const photos = listParser(data, currChange);
     return (
       <div className={style.photoContainer}>
         {photos}

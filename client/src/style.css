@@ -46,19 +46,19 @@
   height: 458px;
   display: flex;
   flex-flow: column wrap;
+  position: relative;
 }
 
 .leftButton {
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 185.5px;
-  left: 48px;
+  margin-top: 185.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
   z-index: 1;
+  margin-right: -30px;
 }
 
 
@@ -67,19 +67,66 @@
   background-color: grey;
   height: 40px;
   width: 30px;
-  position: fixed;
-  top: 185.5px;
-  left: 979.5px;
+  margin-top: 185.5px;
   outline: none;
   font-size: 20px;
   opacity: 0.5;
+  z-index: 1;
+  margin-left: -30px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 962px;
+  position: absolute;
+  z-index: 1;
+}
+
+.prev {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: absolute;
+  top: 185.5px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.next {
+  background-color: grey;
+  height: 40px;
+  width: 30px;
+  position: absolute;
+  top: 185.5px;
+  margin-left: 931.5px;
+  outline: none;
+  font-size: 20px;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .mainContainer {
+  display: flex;
   height: 458px;
   width: 962px;
   overflow: hidden;
+  position: relative;
 }
+
+.prev:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
+
+.next:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
 
 .rightButton:hover {
   background-color: #272222;;
@@ -92,3 +139,37 @@
   color: white;
   opacity: .8;
 } 
+
+.closeStyle {
+  position: absolute;
+  font-size: 20px;
+  outline: none;
+  margin-left: 724px;
+  background-color: grey;
+  opacity: .5;
+  width: 30px;
+}
+
+.closeStyle:hover {
+  background-color: #272222;;
+  color: white;
+  opacity: .8;
+} 
+
+.popImageStyle {
+  height: 100%;
+  width: 545px;
+  margin: auto;
+}
+
+.popMainContainer {
+  height: 90.70%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.mainDiv {
+  display: flex;
+}

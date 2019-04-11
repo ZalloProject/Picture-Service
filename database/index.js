@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const random = require('mongoose-simple-random');
 
-const conn = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/test?retryWrites=true', (err) => {
+const conn = mongoose.createConnection('mongodb+srv://BenPoling:159260pOling@zallow-a5wej.mongodb.net/mockData?retryWrites=true', (err) => {
   if (err) {
     throw err;
   }
@@ -16,26 +16,29 @@ links.plugin(random);
 
 const urlSchema = conn.model('urls', links);
 
+
 const getLinks = (cb) => {
-  urlSchema.findRandom({}, {}, { limit: 9 }, (err, data) => {
+  const randomNumber = Math.floor(Math.random() * 50);
+  urlSchema.findRandom({}, {}, { limit: randomNumber }, (err, data) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(data);
       cb(data);
     }
   });
 };
 
 // const save = (url, _id, cb) => {
-//   console.log('did it happen again?')
-//   links.create({
+//   const newLinks = new urlSchema({
 //     _id,
 //     url,
-//   }, (err, data) => {
-//     if(err) {
-//       throw err;
+//   });
+//   newLinks.save((err, data) => {
+//     if (err) {
+//       console.log(err);
 //     } else {
-//       cb(data);
+//       console.log(data);
 //     }
 //   });
 // };
