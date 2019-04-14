@@ -29,7 +29,7 @@ class App extends Component {
     // fetch('http://localhost:8081/populateDB', {
     //   method: 'GET',
     // }).then(data => console.log(data));
-    fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
+    fetch('http://picturescomponent-env.rvmps3ehip.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
       .then((newData) => {
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   houseView() {
-    fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
+    fetch('http://picturescomponent-env.rvmps3ehip.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
       .then((newData) => {
