@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/links', (req, res) => {
   db.getLinks((data) => {
+    console.log(data, 'THIS IS THE PHOTO DATA');
     res.json(data);
   });
 });

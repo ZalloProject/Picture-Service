@@ -26,7 +26,8 @@ class App extends Component {
   }
   //fetching links on mount
   componentWillMount() {
-    fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
+
+    fetch('http://picturescomponent-env.rvmps3ehip.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
       .then((newData) => {
@@ -37,7 +38,7 @@ class App extends Component {
   }
   //method to refresh the picture component when other microservices trigger it with global event
   houseView() {
-    fetch('http://fecservice-env-2.azm7p9njeb.us-east-2.elasticbeanstalk.com/links', {
+    fetch('http://picturescomponent-env.rvmps3ehip.us-east-2.elasticbeanstalk.com/links', {
       method: 'GET',
     }).then(res => res.json())
       .then((newData) => {
