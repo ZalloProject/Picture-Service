@@ -29,19 +29,4 @@ const getLinks = (cb) => {
   });
 };
 
-// const save = (url, _id, cb) => {
-//   const newLinks = new urlSchema({
-//     _id,
-//     url,
-//   });
-//   newLinks.save((err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(data);
-//     }
-//   });
-// };
 module.exports.getLinks = getLinks;
-// module.exports.getAll = getAll;
-// module.exports.save = save;

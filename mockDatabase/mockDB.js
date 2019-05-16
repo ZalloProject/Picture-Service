@@ -26,18 +26,4 @@ const getLinks = (cb) => {
   });
 };
 
-// const save = (url, _id, cb) => {
-//   mockUrlSchema.create({
-//     _id,
-//     url,
-//   }, (err, data) => {
-//     if (err) {
-//       throw err;
-//     } else {
-//       cb(data);
-//     }
-//   });
-// };
 module.exports.getLinks = getLinks;
-// module.exports.getAll = getAll;
-// module.exports.save = save;
